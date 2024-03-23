@@ -6,6 +6,8 @@ export default function GlobalState ({children}) {
 const [searchParam, setSearchParam] = useState("")
 const [loading, setLoading] = useState(false)
 const [recipeList, setRecipeList] = useState([])
+const [recipeDetails, setRecipeDetails] = useState(null)
+const [favoriteLists, setFavoriteLists] = useState([])
 
 async function handleSubmit (event) {
   event.preventDefault();
@@ -25,10 +27,14 @@ async function handleSubmit (event) {
     console.log(error)
   }
 
+  function handleAddToFavorites(getCurrentItem) {
+    console.log(getCurrentItem)
+  }
+
 }
 
   return (
-  <GlobalContext.Provider value={{ searchParam, setSearchParam, handleSubmit, loading, recipeList }}>
+  <GlobalContext.Provider value={{ searchParam, setSearchParam, handleSubmit, loading, recipeList, recipeDetails, setRecipeDetails, handleAddToFavorites}}>
     {children}
   </GlobalContext.Provider>
     )
