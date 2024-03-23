@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import {GlobalContext} from "../context/GlobalContext";
+import {GlobalContext} from "../../context/GlobalContext";
 
 const Header = () => {
-const {searchParam, setSearchParam} = useContext(GlobalContext); 
+const {searchParam, setSearchParam, handleSubmit} = useContext(GlobalContext); 
   console.log(searchParam)
 
   return (
@@ -16,7 +16,7 @@ const {searchParam, setSearchParam} = useContext(GlobalContext);
           Food recipe finder
         </NavLink>
       </h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           name="input"
           placeholder="Enter items..."
@@ -25,6 +25,7 @@ const {searchParam, setSearchParam} = useContext(GlobalContext);
           onChange={(event) => setSearchParam(event.target.value)}
           className="bg-white/75 p-3 px-8 rounded-full outline-none lg:w-96 shadow-lg shadow-red-100 focus:shadow-red-200"
         ></input>
+        <button type="submit">search</button>
       </form>
       <ul className="flex gap-5">
         <li>
