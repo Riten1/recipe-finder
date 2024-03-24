@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import {GlobalContext} from "../../context/GlobalContext";
 
 const Header = () => {
-const {searchParam, setSearchParam, handleSubmit} = useContext(GlobalContext); 
+const {searchParam, setSearchParam, handleSubmit, favoriteLists} = useContext(GlobalContext); 
   console.log(searchParam)
 
   return (
@@ -42,7 +42,9 @@ const {searchParam, setSearchParam, handleSubmit} = useContext(GlobalContext);
             to={"/favorites"}
             className="text-black hover:text-gray-700 duration-300"
           >
-            Favorites
+            Favorites {
+            favoriteLists.length === 0 ? null : 
+            favoriteLists.length}
           </NavLink>
         </li>
       </ul>
