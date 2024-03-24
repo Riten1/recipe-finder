@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import {GlobalContext} from "../../context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 
 const Header = () => {
-const {searchParam, setSearchParam, handleSubmit, favoriteLists} = useContext(GlobalContext); 
-  console.log(searchParam)
+  const { searchParam, setSearchParam, handleSubmit, favoriteLists } =
+    useContext(GlobalContext);
+  console.log(searchParam);
 
   return (
     <nav className="flex justify-between items-center py-8 container mx-auto flex-col lg:flex-row gap-5 lg:gap-0">
@@ -42,9 +43,7 @@ const {searchParam, setSearchParam, handleSubmit, favoriteLists} = useContext(Gl
             to={"/favorites"}
             className="text-black hover:text-gray-700 duration-300"
           >
-            Favorites {
-            favoriteLists.length === 0 ? null : 
-            favoriteLists.length}
+            Favorites {favoriteLists.length === 0 ? null : favoriteLists.length}
           </NavLink>
         </li>
       </ul>
